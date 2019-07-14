@@ -20,7 +20,7 @@ nav_path([nav_msgs/Path](http://docs.ros.org/api/nav_msgs/html/msg/Path.html))
 >>Publish the navigation path via this topic.
 
 ## 2.3 Parameters  
-~Euclidean(bool; default: "false")  
+~Euclidean(bool; default: "true")  
 >>Using Euclidean distance or Manhattan distance When calculating the H value.
 
 ~OccupyThresh(int; default: -1)  
