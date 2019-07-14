@@ -29,7 +29,7 @@ nav_path([nav_msgs/Path](http://docs.ros.org/api/nav_msgs/html/msg/Path.html))
 ~InflateRadius(double; defalut: -1)  
 >>InflateRadius is the inflation radius(unit: m). When InflateRadius is less than or equal to zero(InflateRadius <= 0), no inflation operation is taken.
 
-~rate(int; default: 1)  
+~rate(int; default: 10)  
 >>The rate of publishing mask topic.
 
 ## 2.4 Example  
