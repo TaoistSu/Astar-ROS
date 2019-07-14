@@ -9,11 +9,7 @@
         <param name="Euclidean" value="true"/>
         <param name="OccupyThresh" value="-1"/>
         <param name="InflateRadius" value="0.25"/>
-<<<<<<< HEAD
-        <param name="rate" value="1"/>
-=======
         <param name="rate" value="10"/>
->>>>>>> second commit
     </node>
 
     ################ start rviz ################

@@ -2,32 +2,17 @@
 // Created by lihao on 19-7-9.
 //
 
-<<<<<<< HEAD
-#ifndef ASTAR_ASTAR_H
-#define ASTAR_ASTAR_H
-=======
 #ifndef ASTAR_H
 #define ASTAR_H
->>>>>>> second commit
 
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
-<<<<<<< HEAD
-
-#define ASTAR_DEBUG false
-
-=======
->>>>>>> second commit
 using namespace std;
 using namespace cv;
 
 
-<<<<<<< HEAD
-namespace astar{
-=======
 namespace pathplanning{
->>>>>>> second commit
 
 enum NodeType{
     obstacle = 0,
@@ -48,27 +33,16 @@ struct Node{
 
 struct AstarConfig{
     bool Euclidean;         // true/false
-<<<<<<< HEAD
-    int OccupyThresh;    // 0~255
-    int InflateRadius;      // integer
-
-    AstarConfig(bool _Euclidean = false, int _OccupyThresh = -1, int _InflateRadius = -1):
-=======
     int OccupyThresh;       // 0~255
     int InflateRadius;      // integer
 
     AstarConfig(bool _Euclidean = true, int _OccupyThresh = -1, int _InflateRadius = -1):
->>>>>>> second commit
         Euclidean(_Euclidean), OccupyThresh(_OccupyThresh), InflateRadius(_InflateRadius)
     {
     }
 };
 
-<<<<<<< HEAD
-class CAstar{
-=======
 class Astar{
->>>>>>> second commit
 
 public:
     // Interface function
@@ -87,20 +61,12 @@ private:
     //Object
     Mat Map;
     Point startPoint, targetPoint;
-<<<<<<< HEAD
-
-    Mat Label;
-    AstarConfig config;
-    list<Node*> OpenList;  // open list
-    list<Node*> PathList;  // path list
-=======
     Mat neighbor;
 
     Mat LabelMap;
     AstarConfig config;
     vector<Node*> OpenList;  // open list
     vector<Node*> PathList;  // path list
->>>>>>> second commit
 };
 
 }
@@ -108,8 +74,4 @@ private:
 
 
 
-<<<<<<< HEAD
-#endif //ASTAR_ASTAR_H
-=======
 #endif //ASTAR_H
->>>>>>> second commit

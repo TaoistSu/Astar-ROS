@@ -26,13 +26,8 @@ ros::Publisher path_pub;
 // Object
 nav_msgs::OccupancyGrid OccGridMask;
 nav_msgs::Path path;
-<<<<<<< HEAD
-astar::AstarConfig config;
-astar::CAstar castar;
-=======
 pathplanning::AstarConfig config;
 pathplanning::Astar astar;
->>>>>>> second commit
 OccupancyGridParam OccGridParam;
 Point startPoint, targetPoint;
 
@@ -47,11 +42,6 @@ int rate;
 //-------------------------------- Callback function ---------------------------------//
 void MapCallback(const nav_msgs::OccupancyGrid& msg)
 {
-<<<<<<< HEAD
-//    ROS_INFO("MapCallback");
-
-=======
->>>>>>> second commit
     // Get parameter
     OccGridParam.GetOccupancyGridParam(msg);
 
@@ -71,17 +61,10 @@ void MapCallback(const nav_msgs::OccupancyGrid& msg)
         }
     }
 
-<<<<<<< HEAD
-    // Initial CAstar
-    Mat Mask;
-    config.InflateRadius = round(InflateRadius / OccGridParam.resolution);
-    castar.InitAstar(Map, Mask, config);
-=======
     // Initial Astar
     Mat Mask;
     config.InflateRadius = round(InflateRadius / OccGridParam.resolution);
     astar.InitAstar(Map, Mask, config);
->>>>>>> second commit
 
     // Publish Mask
     OccGridMask.header.stamp = ros::Time::now();
@@ -104,11 +87,6 @@ void MapCallback(const nav_msgs::OccupancyGrid& msg)
 
 void StartPointCallback(const geometry_msgs::PoseWithCovarianceStamped& msg)
 {
-<<<<<<< HEAD
-//    ROS_INFO("StartPointCallback");
-
-=======
->>>>>>> second commit
     Point2d src_point = Point2d(msg.pose.pose.position.x, msg.pose.pose.position.y);
     OccGridParam.Map2ImageTransform(src_point, startPoint);
 
@@ -125,11 +103,6 @@ void StartPointCallback(const geometry_msgs::PoseWithCovarianceStamped& msg)
 
 void TargetPointtCallback(const geometry_msgs::PoseStamped& msg)
 {
-<<<<<<< HEAD
-//    ROS_INFO("TargetPointtCallback");
-
-=======
->>>>>>> second commit
     Point2d src_point = Point2d(msg.pose.position.x, msg.pose.position.y);
     OccGridParam.Map2ImageTransform(src_point, targetPoint);
 
@@ -163,11 +136,7 @@ int main(int argc, char * argv[])
     nh_priv.param<bool>("Euclidean", config.Euclidean, true);
     nh_priv.param<int>("OccupyThresh", config.OccupyThresh, -1);
     nh_priv.param<double>("InflateRadius", InflateRadius, -1);
-<<<<<<< HEAD
-    nh_priv.param<int>("rate", rate, 1);
-=======
     nh_priv.param<int>("rate", rate, 10);
->>>>>>> second commit
 
     // Subscribe topics
     map_sub = nh.subscribe("map", 10, MapCallback);
@@ -186,11 +155,7 @@ int main(int argc, char * argv[])
         {
             // Start planning path
             vector<Point> PathList;
-<<<<<<< HEAD
-            castar.PathPlanning(startPoint, targetPoint, PathList);
-=======
             astar.PathPlanning(startPoint, targetPoint, PathList);
->>>>>>> second commit
             if(!PathList.empty())
             {
                 path.header.stamp = ros::Time::now();
